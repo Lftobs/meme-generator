@@ -24,7 +24,16 @@
   color: white;
 }
 
-.App-link {
+.dark {
+  background-color: #282c34;
+  height: 100vh;
+}
+.light {
+  height: 100vh;
+  background-color: #52b60f;
+}
+
+.App-link{
   color: #61dafb;
 }
 
