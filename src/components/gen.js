@@ -39,7 +39,7 @@ class Gen extends Component {
             .then(response => response.json())
             .then(response => {
                 const {memes} = response.data
-                console.log(memes[2] + "ok")
+                // console.log(memes[2] + "ok")
                 this.setState({allmemes: memes})
             })
 
@@ -52,7 +52,7 @@ class Gen extends Component {
         const random = randomimgg.url
         let template = randomimgg.id
         this.setState({id: template})
-        console.log(randomimgg)
+        // console.log(randomimgg)
         this.setState({ randomimg: random})
         console.log("why")
     }
@@ -64,7 +64,7 @@ class Gen extends Component {
       toPng(meme)
         .then(dataURL => {
             download(dataURL, "meme.png")
-            console.log("clicked")
+            //console.log("clicked")
         })
         .catch( () => console.log("Error"))
     }
@@ -74,7 +74,7 @@ class Gen extends Component {
       const params = {
         template_id : this.state.id,
         username:"__Memes__",
-        password: "memes123",
+        password: process.env.React_App_meme_gen_pwd,
         text0: this.state.toptext,
         text1: this.state.bottomtext
       }
@@ -82,8 +82,8 @@ class Gen extends Component {
         .then(response => response.json())
         .then(response => {
             const x = response.data
-            console.log(x.url)
-            console.log(x)
+            //console.log(x.url)
+            //console.log(x)
             this.setState({ randomimg: x.url })
             
         })
@@ -120,7 +120,7 @@ class Gen extends Component {
                 {/* <h2 className="txt" >{this.state.toptext}</h2>
                 <h2 className="txt2" >{this.state.bottomtext}</h2> */}
               </div>
-              <div className="container d-flex justify-content-center" >
+              <div className="container d-flex justify-content-center mb-3" >
                 <button className=" btn btn-primary" onClick={this.downloadMeme} >Download</button>
               </div>
                 
